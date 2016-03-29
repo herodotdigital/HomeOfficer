@@ -2,7 +2,7 @@
 
 `homeofficer` is a tool which allows to report events like holiday and home-office by employees. 
 
-`homeofficer` uses a Slack slash command which report events and save it inside [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1kJXkLKA9EkLbaKZqTQfMvHzFHP674IU4SxvK4E7_b5k/edit#gid=0).
+`homeofficer` uses a Slack slash command which report events and save it inside [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1kJXkLKA9EkLbaKZqTQfMvHzFHP674IU4SxvK4E7_b5k/edit#gid=0)*.
 
 Usage is simple:
 ```
@@ -36,14 +36,7 @@ Check sample files to see the JSON structure.
 - **googleSpreadsheetKeys.json** - it contains the id of your spreadsheet (you can get it from your spreadsheet URL)
 - **googleConsoleCertificate.json** - it is a file generated in [Google Console](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount)
 
-
-
-## Developing new features
-Adding new features to `homeofficer` is simple. Fork the project, write some code and create a pull request.
-
-## Rules & flow
-
-### Report rules
+## Rules
 Currently `homeofficer` supports 2 types of `WorkEvent`:
 1. `RemoteEvent`
 2. `VacationEvent`. 
@@ -63,3 +56,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-------
+\* - every names which you can see in this example are generated.
