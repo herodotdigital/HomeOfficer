@@ -1,0 +1,6 @@
+{
+	"slack_bot_token":"<your slack bot token. Its necesary to download list of users>",
+	"validation_tokens":[
+		<listOfValidationsCommands>
+	]
+}

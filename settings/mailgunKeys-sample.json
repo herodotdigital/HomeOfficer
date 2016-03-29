@@ -1,0 +1,6 @@
+{
+	"baseURL":"<example: https://api.mailgun.net>",
+	"methodURL":"<example: /v3/sandbox7someValues6.mailgun.org/messages",
+	"authorizationUsername":"api",
+	"authorizationPassword":"<mailgun private key>"
+}
