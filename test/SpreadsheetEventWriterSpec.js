@@ -19,10 +19,11 @@ describe("SpreadsheetEventWriter",function(){
         }
     }
 
-    beforeEach(function(){   
+    beforeEach(function(){
         rows = rowsProvider.getPageSync(0);
         worksheetPage = new WorksheetStub(rows);
         sut = new SpreadsheetEventWriter(worksheetPage);
+        console.log(rows);
     });
 
     afterEach(function(){
@@ -32,33 +33,45 @@ describe("SpreadsheetEventWriter",function(){
 
     describe("#saveEvent",function(){
         context("when it is a single day event",function(){
-            it("should mark the date with event name",function(done){
-                var workEvent = new WorkEvent("vacation",new DateRange(new Date(2016,0,4)));
-                sut.saveEventForEmployee(workEvent,"Gerard Adamczyk",function(){
-                    expect(rows[7]["gerardadamczyk"]).to.equals("vacation");
-                    done();    
-                });
+          beforeEach(function(done){
+            var workEvent = new WorkEvent("vacation",new DateRange(new Date(2016,0,4)));
+            sut.saveEventForEmployee(workEvent,"Gerard Adamczyk",function(){
+              done();
             });
+          });
 
-            it("should save changes at row",function(done){
-                var workEvent = new WorkEvent("vacation",new DateRange(new Date(2016,0,4)));
-                sut.saveEventForEmployee(workEvent,"Gerard Adamczyk",function(){
-                    expect(rows[7].saveWasInvoked).to.equals(true);
-                    done();    
-                });
+          it("should mark the date with event name",function(){
+               expect(rows[7]["gerardadamczyk"]).to.equals("vacation");
+          });
+
+          it("change the format of date to allow Worksheet to parse it",function(){
+            expect(rows[7]["x"]).to.equals("2016-01-04")
+          });
+
+          it("should save changes at row",function(){
+              expect(rows[7].saveWasInvoked).to.equals(true);
             });
         });
 
         context("when it is a multiple days event",function(){
-           it("should save changes is every rows for days",function(done){
-               var workEvent = new WorkEvent("remote",new DateRange(new Date(2016,0,5), new Date(2016,0,7)));
-               sut.saveEventForEmployee(workEvent,"Anastazy Wyrick",function(){
-                   expect(rows[8]["anastazywyrick"]).to.equals("remote")
-                   expect(rows[9]["anastazywyrick"]).to.equals("remote")
-                   expect(rows[10]["anastazywyrick"]).to.equals("remote")
-                   done();
-               });
-           });   
+          beforeEach(function(done){
+            var workEvent = new WorkEvent("remote",new DateRange(new Date(2016,0,5), new Date(2016,0,7)));
+            sut.saveEventForEmployee(workEvent,"Anastazy Wyrick",function(){
+              done();
+            });
+          });
+
+           it("should save changes is every rows for days",function(){
+              expect(rows[8]["anastazywyrick"]).to.equals("remote")
+              expect(rows[9]["anastazywyrick"]).to.equals("remote")
+              expect(rows[10]["anastazywyrick"]).to.equals("remote")
+           });
+
+           it("change the format of the date to allow Worksheet to parse it", function(){
+              expect(rows[8]["x"]).to.equals("2016-01-05")
+              expect(rows[9]["x"]).to.equals("2016-01-06")
+              expect(rows[10]["x"]).to.equals("2016-01-07")
+           });
         });
 
         context("when slack username and spreadsheet username dont fit eachother",function(){
@@ -79,7 +92,7 @@ describe("SpreadsheetEventWriter",function(){
                     done();
                 });
             });
- 
+
             it("should report an error if names and any nearby possibilities do not fit",function(done){
                 sut.saveEventForEmployee(dummyEvent(),"DoesNotExists",function(error){
                     expect(error).to.not.equals(null);
