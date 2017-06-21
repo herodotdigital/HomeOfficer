@@ -1,0 +1,35 @@
+{
+    "ok": true,
+    "members": [
+        {
+            "id": "U023BECGF",
+            "team_id": "T021F9ZE2",
+            "name": "jsnow",
+            "deleted": false,
+            "color": "9f69e7",
+            "real_name": "Bobby Tables",
+            "tz": "America\/Los_Angeles",
+            "tz_label": "Pacific Daylight Time",
+            "tz_offset": -25200,
+            "profile": {
+                "avatar_hash": "ge3b51ca72de",
+                "current_status": ":mountain_railway: riding a train",
+                "first_name": "Bobby",
+                "last_name": "Tables",
+                "real_name": "John Snow",
+                "email": "bobby@slack.com",
+                "skype": "my-skype-name",
+                "phone": "+1 (123) 456 7890",
+                "image_24": "https:\/\/...",
+                "image_32": "https:\/\/...",
+                "image_48": "https:\/\/...",
+                "image_72": "https:\/\/...",
+                "image_192": "https:\/\/..."
+            },
+            "is_admin": true,
+            "is_owner": true,
+            "updated": 1490054400,
+            "has_2fa": false
+        }
+    ]
+}

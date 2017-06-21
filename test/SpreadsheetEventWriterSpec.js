@@ -23,7 +23,6 @@ describe("SpreadsheetEventWriter",function(){
         rows = rowsProvider.getPageSync(0);
         worksheetPage = new WorksheetStub(rows);
         sut = new SpreadsheetEventWriter(worksheetPage);
-        console.log(rows);
     });
 
     afterEach(function(){
