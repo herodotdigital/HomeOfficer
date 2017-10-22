@@ -10,6 +10,7 @@
     "diacritics": "^1.2.3",
     "express": "^4.13.4",
     "google-spreadsheet": "^1.1.4",
+    "mocha": "^4.0.1",
     "moment": "^2.11.2",
     "nodemailer": "^2.1.0",
     "q": "^1.4.1",
