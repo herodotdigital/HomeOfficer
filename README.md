@@ -12,7 +12,7 @@ $ /vacation tomorrow
 ```
 
 ### Mail sending
-After successful save of an event `homeofficer` will send an e-mail to project manager or to default e-mail address. Mail sending is handled by [Mailgun service](www.mailgun.com)
+After successful save of an event `homeofficer` will send an e-mail to project manager or to default e-mail address. Mail sending is handled by [Mailgun service](https://www.mailgun.com)
 
 ## Instalation
 Fork/download the project. After that, you have to create few settings-file for 3rd party integrations which are:
